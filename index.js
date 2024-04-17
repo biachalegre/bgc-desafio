@@ -3,6 +3,8 @@ const pup = require("puppeteer");
 const url = "https://www.mercadolivre.com.br/";
 const searchFor = "macbook";
 
+let pageNumber = 1;
+
 (async () => {
   const browser = await pup.launch({ headless: false });
   const page = await browser.newPage();
@@ -24,7 +26,28 @@ const searchFor = "macbook";
     el.map((link) => link.href)
   );
 
-  console.log(links);
+  // console.log(links);
+
+  for (const link of links) {
+    if (pageNumber === 10) continue;
+    await page.goto(link);
+    await page.waitForSelector(".ui-pdp-title");
+
+    const title = await page.$eval(
+      ".ui-pdp-title",
+      (element) => element.innerText
+    );
+
+    const price = await page.$eval(
+      ".andes-money-amount__fraction",
+      (element) => element.innerText
+    );
+
+    const obj = { title, price };
+    console.log(obj);
+
+    pageNumber++;
+  }
 
   setTimeout(async () => {
     await browser.close();
