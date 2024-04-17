@@ -5,6 +5,8 @@ const searchFor = "macbook";
 
 let pageNumber = 1;
 
+const list = [];
+
 (async () => {
   const browser = await pup.launch({ headless: false });
   const page = await browser.newPage();
@@ -30,6 +32,7 @@ let pageNumber = 1;
 
   for (const link of links) {
     if (pageNumber === 10) continue;
+    console.log("Página", pageNumber);
     await page.goto(link);
     await page.waitForSelector(".ui-pdp-title");
 
@@ -43,8 +46,21 @@ let pageNumber = 1;
       (element) => element.innerText
     );
 
-    const obj = { title, price };
-    console.log(obj);
+    const seller = await page.evaluate(() => {
+      const el = document.querySelector(".ui-pdp-seller__link-trigger");
+      if (!el) return null;
+      return el.innerText;
+    });
+
+    const obj = {};
+    obj.title = title;
+    obj.price = price;
+    seller ? (obj.seller = seller) : " ";
+    obj.link = link;
+    // console.log(obj);
+
+    list.push(obj);
+    console.log(list);
 
     pageNumber++;
   }
