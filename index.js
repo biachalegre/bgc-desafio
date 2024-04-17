@@ -15,6 +15,11 @@ const searchFor = "macbook";
 
   await page.type("#cb1-edit", searchFor);
 
+  await Promise.all([
+    page.waitForNavigation(),
+    await page.click(".nav-search-btn"),
+  ]);
+
   setTimeout(async () => {
     await browser.close();
   }, 3000);
