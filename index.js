@@ -20,6 +20,12 @@ const searchFor = "macbook";
     await page.click(".nav-search-btn"),
   ]);
 
+  const links = await page.$$eval(".ui-search-item__group > a", (el) =>
+    el.map((link) => link.href)
+  );
+
+  console.log(links);
+
   setTimeout(async () => {
     await browser.close();
   }, 3000);
