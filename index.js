@@ -9,4 +9,8 @@ const url = "https://www.mercadolivre.com.br/";
 
   await page.goto(url);
   console.log("Página aberta");
+
+  setTimeout(async () => {
+    await browser.close();
+  }, 3000);
 })();
