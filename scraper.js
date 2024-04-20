@@ -1,6 +1,6 @@
 const pup = require("puppeteer");
 
-const url = "https://www.mercadolivre.com.br/";
+const url = "https://www.amazon.com.br/bestsellers)";
 const searchFor = "macbook";
 
 let pageNumber = 1;
