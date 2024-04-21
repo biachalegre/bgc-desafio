@@ -1,4 +1,5 @@
 const productController = require("./src/features/product/controller/product_controller");
+const scraper = require("./src/core/scrapers/mercadolivre_scraper");
 const productsPath = "/products";
 
 /**
@@ -15,7 +16,8 @@ exports.handler = async function (event) {
         response = await getProducts();
         break;
       case event.httpMethod === "POST" && event.path === productsPath:
-        response = await saveProducts(JSON.parse(event.body));
+        const products = await getProductsScraper();
+        response = await saveProducts(products);
         break;
       default:
         response = {
@@ -28,6 +30,14 @@ exports.handler = async function (event) {
     console.log(error);
   }
 };
+
+/**
+ * Obtém todos os produtos.
+ * @returns {Object} Uma resposta HTTP contendo os produtos recuperados.
+ */
+async function getProductsScraper() {
+  return await scraper.scraper();
+}
 
 /**
  * Obtém todos os produtos.
