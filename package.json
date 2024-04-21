@@ -11,13 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1602.0",
-    "dynamoose": "^4.0.0",
-    "express": "^4.19.2",
-    "morgan": "^1.10.0",
-    "puppeteer": "^22.6.5",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
+    "puppeteer": "^22.6.5"
   }
 }
