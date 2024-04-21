@@ -1,13 +1,23 @@
 const AWS = require("../../../core/config/database");
+
+/**
+ * Cliente DocumentClient para interagir com o DynamoDB.
+ * @type {AWS.DynamoDB.DocumentClient}
+ */
 const dynamodb = new AWS.DynamoDB.DocumentClient();
+
+/**
+ * Nome da tabela no DynamoDB onde os dados dos produtos são armazenados.
+ * @constant {string}
+ */
 const tableName = "product";
 
-// exports.fetch = async function () {
-//   const dynamoData = await dynamodb.scan(params).promise();
-
-//   return dynamoData.Items;
-// };
-
+/**
+ * Recupera todos os produtos da tabela DynamoDB.
+ * @async
+ * @function fetch
+ * @returns {Promise<Array>} Uma promise que resolve em um array contendo todos os produtos.
+ */
 async function fetch() {
   const params = { TableName: tableName };
   const dynamoData = await dynamodb.scan(params).promise();
@@ -15,6 +25,13 @@ async function fetch() {
   return dynamoData.Items;
 }
 
+/**
+ * Salva os produtos na tabela DynamoDB.
+ * @async
+ * @function save
+ * @param {Array<ProductModel>} products - Um array contendo objetos de produto a serem salvos.
+ * @returns {Promise<boolean>} Uma promise que resolve em verdadeiro se os produtos forem salvos com sucesso, caso contrário, falso.
+ */
 async function save(products) {
   let result = false;
 
@@ -43,23 +60,6 @@ async function save(products) {
   console.log("Result Repository: ", result);
   return result;
 }
-
-// exports.save = async function (product) {
-//   const dynamoData = await dynamodb.put(params, product).promise();
-
-//   return dynamoData.Items;
-// };
-
-// exports.save = async function (products) {
-//   const params = {
-//     TableName: "product",
-//     Item: products,
-//   };
-
-//   await dynamodb.put(params).promise();
-
-//   return products;
-// };
 
 module.exports = {
   fetch: fetch,

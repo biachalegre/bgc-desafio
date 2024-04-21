@@ -2,9 +2,10 @@ const repository = require("../repositories/product_repository");
 const ProductModel = require("../models/product_model");
 
 /**
- * @returns {Promise<ProductModel[]>} Uma promessa que resolve para um array de produtos.
+ * Recupera todos os produtos da fonte de dados.
+ * @async
+ * @returns {Promise<ProductModel[]>} Uma promise que resolve para um array de objetos ProductModel.
  */
-
 async function fetch() {
   try {
     const data = await repository.fetch();
@@ -26,7 +27,10 @@ async function fetch() {
 }
 
 /**
- * @returns {Promise<boolean>} Uma promessa que resolve para um array de produtos.
+ * Salva uma lista de produtos na fonte de dados.
+ * @async
+ * @param {Object[]} items - Uma lista de objetos representando produtos a serem salvos.
+ * @returns {Promise<boolean>} Uma promise que resolve para verdadeiro se os produtos forem salvos com sucesso, caso contrário, falso.
  */
 async function save(items) {
   try {
