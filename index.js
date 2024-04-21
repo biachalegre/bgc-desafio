@@ -1,4 +1,4 @@
-const product = require("./src/features/product/repositories/product_repository");
+const productController = require("./src/features/product/controller/product_controller");
 const productsPath = "/products";
 
 exports.handler = async function (event) {
@@ -23,7 +23,7 @@ exports.handler = async function (event) {
 };
 
 async function getProducts(productsPath) {
-  const products = await product.fetch();
+  const products = await productController.fetch();
   const body = {
     products: products,
   };
