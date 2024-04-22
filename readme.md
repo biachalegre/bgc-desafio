@@ -137,7 +137,7 @@ Este endpoint permite salvar informações sobre os produtos mais vendidos do Me
 | category  | String | A categoria do produto     |
 | imgUrl    | String | O URL da imagem do produto |
 
-##### Exemplo de solicitação
+##### Exemplo dos dados obtidos pelo web scraper
 
 ```json
 {
