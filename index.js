@@ -32,11 +32,18 @@ exports.handler = async function (event) {
 };
 
 /**
- * Obtém todos os produtos.
- * @returns {Object} Uma resposta HTTP contendo os produtos recuperados.
+ * Obtém os produtos mais vendidos utilizando o web scraper.
+ * @returns {Promise<Array>} Uma Promise que resolve com um array contendo os produtos mais vendidos.
+ * @throws {Error} Se ocorrer algum erro durante a execução do web scraper.
  */
 async function getProductsScraper() {
-  return await scraper.scraper();
+  try {
+    // Chama a função do web scraper para obter os produtos mais vendidos
+    return await scraper.scraper();
+  } catch (error) {
+    // Lança um erro se ocorrer uma exceção durante a execução do web scraper
+    throw new Error("Erro ao obter produtos do web scraper: " + error.message);
+  }
 }
 
 /**
@@ -62,9 +69,9 @@ async function saveProducts(requestBody) {
   console.log("ProductsSaved: ", result);
 
   const body = {
-    operation: "SAVE",
     status: result,
   };
+
   return buildResponse(200, body);
 }
 
