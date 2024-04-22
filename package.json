@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sparticuz/chromium": "^122.0.0",
     "aws-sdk": "^2.1602.0",
-    "puppeteer": "^22.6.5"
+    "puppeteer-core": "^22.2.0"
   }
 }

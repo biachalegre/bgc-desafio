@@ -1,8 +1,16 @@
-const pup = require("puppeteer");
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
 const url = "https://www.mercadolivre.com.br/mais-vendidos";
 
+// (async () => {
+
 exports.scraper = async function () {
-  const browser = await pup.launch();
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
+  });
   const page = await browser.newPage();
 
   await page.goto(url);
@@ -45,7 +53,8 @@ exports.scraper = async function () {
     data.push(obj);
   }
 
-  console.log(data);
-
   await browser.close();
+
+  return data;
 };
+// })();
