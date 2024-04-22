@@ -76,11 +76,11 @@ O projeto segue uma arquitetura modular, dividida em diferentes diretórios e ar
 ```
 
 <details>
-<summary>Mais detalhes sobre as pastas</summary>
+<summary>Mais Detalhes</summary>
 
 - 📂 **core**: Contém arquivos de configuração e a lógica central do aplicativo.
-  - **config**: Configurações do banco de dados.
-  - **scraper**: Lógica de scraping utilizando Puppeteer.
+  - 📂**config**: Configurações do banco de dados.
+  - 📂 **scraper**: Lógica de scraping utilizando Puppeteer.
 - 📂 **features**: Contém os módulos de funcionalidades específicas do aplicativo.
   - 📂 **product**: Módulo de produtos.
     - 📂 **controller**: Controladores para manipular solicitações HTTP.
