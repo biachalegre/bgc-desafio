@@ -49,15 +49,15 @@ O projeto segue uma arquitetura modular, dividida em diferentes diretórios e ar
 └─── 📂 src
 │    │   index.js
 │    │
-│    └─── 📂 core (Contém arquivos de configuração e a lógica central do aplicativo)
+│    └─── 📂 core
 │    │    │
-│    │    └─── 📂 config (Configurações do banco de dados)
+│    │    └─── 📂 config
 │    │         │   database.js
 │    │    │
-│    │    └─── 📂 scraper (Lógica de scraping utilizando Puppeteer)
+│    │    └─── 📂 scraper
 │    │         │   mercadolivre_scraper.js
 │    │
-│    └─── 📂 features (Contém os módulos de funcionalidades específicas do aplicativo)
+│    └─── 📂 features
 │         │
 │         └─── 📂 product
 │              │
