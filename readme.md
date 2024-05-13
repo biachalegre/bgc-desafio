@@ -1,4 +1,4 @@
-# Desafio BGC - Web Scraper com AWS.
+# Web Scraper com AWS.
 
 ## Tabela de Conteúdos
 
@@ -10,7 +10,7 @@
 
 ## 1. Introdução
 
-Este projeto foi desenvolvido como parte do processo seletivo de estágio da empresa BGC. Seu objetivo principal é criar um web scraper que retorne os 3 produtos mais vendidos de um e-commerce (nesse projeto utilizamos o Mercado Livre).
+O objetivo principal desse projeto é criar um web scraper que retorne os 3 produtos mais vendidos de um e-commerce (nesse projeto utilizamos o Mercado Livre).
 
 O web scraper foi construído utilizando as seguintes tecnologias:
 
@@ -29,7 +29,7 @@ O web scraper foi construído utilizando as seguintes tecnologias:
 - Puppeteer 22.2.0
 - Chromium 122.0.0
 
-> O principal motivo pelo qual decidi utilizar o Puppeteer foi para me familiarizar com a ferramenta, já que é a utilizada nos projetos da BGC. Entretanto, ele também apresenta vantagens em relação a outras ferramentas de scraping disponíveis, principalmente devido à sua capacidade de automatizar tarefas em navegadores da web, como clicar em botões, preencher formulários e navegar nas páginas. Embora a versão atual do projeto não explore completamente essas capacidades do Puppeteer, planejo implementá-las em uma possível versão futura (v2).
+> O principal motivo pelo qual decidi utilizar o Puppeteer foi porque ele apresenta vantagens em relação a outras ferramentas de scraping disponíveis, principalmente devido à sua capacidade de automatizar tarefas em navegadores da web, como clicar em botões, preencher formulários e navegar nas páginas. Embora a versão atual do projeto não explore completamente essas capacidades do Puppeteer, planejo implementá-las em uma possível versão futura (v2).
 
 ## 2. Visão geral e Funcionalidades
 
@@ -44,7 +44,7 @@ O scraper desenvolvido neste projeto acessa a página de produtos mais vendidos 
 O projeto segue uma arquitetura modular, dividida em diferentes diretórios e arquivos, conforme descrito a seguir:
 
 ```
-📦 bgc-desafio
+📦 webscraper
 │
 └─── 📂 src
 │    │   index.js
